@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I pini</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Simple line icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        #sliderValue {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+    <title>Funzione</title>
+</head>
+<body>
+    <header class="masthead-2 d-flex align-items-center">
+        <div class="container px-4 px-lg-5 text-center">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-5" style="color: black !important;">Calcolo</h3>
+                <h2 class="mb-5">Viaggi d'affari</h2>
+                <h4><strong>Guarda come variano i costi dell'autista e del viaggio</strong></h4>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                <form method="post">
+                    <label for="slider">Seleziona la velocità da 1 a 300:</label>
+                    <input type="range" id="slider" name="valore" min="1" max="300" step="1" onchange="updateSliderValue()">
+            
+                    <span id="sliderValue">151</span>
+            
+                    <input type="submit" value="Calcola"  onclick="calcolaDivisione()">
+                </form>
+
+            </div>
+        </div>
+    </header>
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container px-10 px-lg-20">
+            <h1 class="mb-1">Guarda come abbiamo trovato la funzione</h1>
+            <br>
+            <br>
+            <div class="center rwd-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iWJjsz97EkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <br>
+            <br>
+            <h2 class="mb-5">Torna alla home</h2>
+            <a class="btn btn-dark btn-xl"  href="index.html">Home</a>
+        </div>
+    </section>  
+    <script>
+        function updateSliderValue() {
+            var slider = document.getElementById("slider");
+            var sliderValue = document.getElementById("sliderValue");
+
+            sliderValue.innerText = slider.value;
+        }
+
+        function calcolaDivisione() {
+            var slider = document.getElementById("slider");
+            var valore = slider.value;
+            var risultato = (6000 / valore);
+
+            // Mostra il risultato in una finestra di dialogo (alert box)
+            var risultato2=0;
+            if(valore>50){
+                risultato2=(6000 / valore);
+                risultato2=risultato2+(0.6*valore)-20;
+            }else{
+                risultato2=risultato+10;
+            }
+            risultato.toFixed(2);
+            risultato2.toFixed(2);
+
+            alert("Il costo dell'autista al cambiare della velocità "+valore+" è: " + risultato+"€");
+            alert("Il costo totale del viaggio al cambiare della velocità "+valore+" è: " + risultato2+"€");
+        }
+        function calcolaCtot(){
+            var slider = document.getElementById("slider");
+            var valore = slider.value;
+            var risultato2;
+            if(valore>50){
+                risultato2=(6000 / valore).toFixed(2);
+                risultato2=risultato2+(0.6*valore)-20;
+            }
+            alert("Il costo totale del viaggio al cambiare della velocità "+valore+" è: " + risultato2+"€");
+        }
+    </script>
+</body>
+</html>
